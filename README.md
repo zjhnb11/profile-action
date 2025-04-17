@@ -11,13 +11,26 @@
 - Maven
 - JSP
 - MySQL
-# Database
-Here,we used Mysql DB 
-MSQL DB Installation Steps for Linux ubuntu 14.04:
-- $ sudo apt-get update
-- $ sudo apt-get install mysql-server
+# Steps 
+Windows
 
-Then look for the file :
-- /src/main/resources/db_backup.sql
-- db_backup.sql file is a mysql dump file.we have to import this dump to mysql db server
-- > mysql -u <user_name> -p accounts < db_backup.sql
+- To install helm
+```
+choco install kubernetes-helm
+```
+-  go to project folder and run command
+```
+helm create profilecharts
+```
+-  move the profilecharts folder to helm folder which you should create
+```
+mkdir helm
+mv profilecharts helm/
+```
+-  Replace the default template with the project's yml file 
+```
+rm -rf helm/profilecharts/templates/*
+cp kuberbetes/vpro-app/* helm/vprofilecharts/templates/
+```
+-  then you can run the workflow in Github Action 
+
